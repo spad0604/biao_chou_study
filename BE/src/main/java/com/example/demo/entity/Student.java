@@ -2,22 +2,23 @@ package com.example.demo.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 public class Student {
     @Id
     private int id;
     private String name;
-    private int age;
+    @JsonProperty("class_name")
+    private String className;
+    private String status;
 
-    public Student(int id, String name, int age) {
+    public Student() {}
+    public Student(int id, String name, String className, String status) {
         this.id = id;
         this.name = name;
-        this.age = age;
-    }
-
-    public Student() {
-
+        this.className = className;
+        this.status = status;
     }
 
     public int getId() {
@@ -36,11 +37,20 @@ public class Student {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public String getClassName() {
+        return className;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setClassName(String className) {
+        this.className = className;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }

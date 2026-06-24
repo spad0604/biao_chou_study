@@ -8,6 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface StudentRepository extends JpaRepository<Student, Integer> {
-    @Query("SELECT s FROM Student s WHERE s.age = :age")
-    List<Student> findByAge(@Param("age") Integer age);
+    @Query("SELECT s FROM Student s WHERE LOWER(s.name) LIKE LOWER(CONCAT('%', :name, '%'))")
+    List<Student> findByName(@Param("name") String name);
 }

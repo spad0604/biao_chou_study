@@ -25,8 +25,8 @@ public class StudentController {
         return studentRepository.findAll();
     }
 
-    @GetMapping("/age/{age}")
-    public List<Student> getStudentByAge(@PathVariable Integer age) {
-        return studentRepository.findByAge(age);
+    @GetMapping("/name/{name}")
+    public List<Student> getStudentByName(@PathVariable String name) {
+        return studentRepository.findByName(name);
     }
 }
